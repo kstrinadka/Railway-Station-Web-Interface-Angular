@@ -1,0 +1,119 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #workerForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="worker.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter your name"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" [(ngModel)]="worker.surname"
+               class="form-control"
+               id="surname"
+               name="surname"
+               placeholder="Enter your surname"
+               required #surname="ngModel">
+        <div [hidden]="!surname.pristine" class="alert alert-danger">surname is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="middlename">Middlename</label>
+        <input type="text" [(ngModel)]="worker.middlename"
+               class="form-control"
+               id="middlename"
+               name="middlename"
+               placeholder="Enter your middlename"
+               required #middlename="ngModel">
+        <div [hidden]="!middlename.pristine" class="alert alert-danger">middlename is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">gender</label>
+        <input type="text" [(ngModel)]="worker.gender"
+               class="form-control"
+               id="gender"
+               name="gender"
+               placeholder="Enter your gender"
+               required #gender="ngModel">
+        <div [hidden]="!gender.pristine" class="alert alert-danger">gender is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="birthday">birthday</label>
+        <input type="text" [(ngModel)]="worker.birthday"
+               class="form-control"
+               id="birthday"
+               name="birthday"
+               placeholder="Enter your birthday"
+               required #birthday="ngModel">
+        <div [hidden]="!birthday.pristine" class="alert alert-danger">birthday is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="countchildren">countchildren</label>
+        <input type="text" [(ngModel)]="worker.countchildren"
+               class="form-control"
+               id="countchildren"
+               name="countchildren"
+               placeholder="Enter your countchildren"
+               required #countchildren="ngModel">
+        <div [hidden]="!countchildren.pristine" class="alert alert-danger">countchildren is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="stationstartdate">stationstartdate</label>
+        <input type="text" [(ngModel)]="worker.stationstartdate"
+               class="form-control"
+               id="stationstartdate"
+               name="stationstartdate"
+               placeholder="Enter your stationstartdate"
+               required #stationstartdate="ngModel">
+        <div [hidden]="!stationstartdate.pristine" class="alert alert-danger">stationstartdate is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="salary">salary</label>
+        <input type="text" [(ngModel)]="worker.salary"
+               class="form-control"
+               id="salary"
+               name="salary"
+               placeholder="Enter your salary"
+               required #salary="ngModel">
+        <div [hidden]="!salary.pristine" class="alert alert-danger">salary is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="departmentid">departmentid</label>
+        <input type="text" [(ngModel)]="worker.departmentid"
+               class="form-control"
+               id="departmentid"
+               name="departmentid"
+               placeholder="Enter your departmentid"
+               required #departmentid="ngModel">
+        <div [hidden]="!departmentid.pristine" class="alert alert-danger">departmentid is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="brigadeid">brigadeid</label>
+        <input type="text" [(ngModel)]="worker.brigadeid"
+               class="form-control"
+               id="brigadeid"
+               name="brigadeid"
+               placeholder="Enter your brigadeid"
+               required #brigadeid="ngModel">
+        <div [hidden]="!brigadeid.pristine" class="alert alert-danger">brigadeid is required</div>
+      </div>
+
+      <button type="submit" [disabled]="!workerForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>
