@@ -1,0 +1,101 @@
+<div class="card my-5">
+  <div class="card-body">
+
+
+    <form>
+      <label for="number-input">Получить перечень всех pаботников: </label>
+      <button (click)="findAll()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень pаботников указанного отдела:</label>
+      <input id="number-input" name="number" type="number" #numberInput>
+      <button (click)="getByDepartmentForm(numberInput.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень pаботников в указанной бригаде:</label>
+      <input id="number-input-brigade" name="number" type="number" #numberBrigadeInput>
+      <button (click)="getByBrigadeIdForm(numberBrigadeInput.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень pаботников в бpигаде, обслуживающих некоторый локомотив:</label>
+      <input id="number-input-brigade-locomotive" name="number" type="number" #numberBrigadeLocomotiveInput>
+      <button (click)="getBrigadeWorkersByLocomotiveForm(numberBrigadeLocomotiveInput.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень всех pаботников по стажу pаботы на станции:</label>
+      <button (click)="getByWorkExperience()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень водителей локомотивов:</label>
+      <button (click)="getLocomotiveDrivers()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень водителей локомотивов прошедших медосмотр в указанный год:</label>
+      <input id="number-input-locomotive-medexam" name="number" type="number" #numberLocomotiveDriversPassedMedExamInYear>
+      <button (click)="getLocomotiveDriversPassedMedExamInYearForm(numberLocomotiveDriversPassedMedExamInYear.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень pаботников указанного пола:</label>
+      <button (click)="getByGenderIdentityForm('Мужчина')">Мужчина</button>
+      <button (click)="getByGenderIdentityForm('Женщина')">Женщина</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень pаботников по пpизнаку наличия и количества детей:</label>
+      <button (click)="getByChildrenCount()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень pаботников по pазмеpу заpаботной платы:</label>
+      <button (click)="getBySalary()">Показать</button>
+    </form>
+
+
+    <p>Суммарная зарплата: {{ sumSalary }}</p>
+    <p>Средняя зарплата: {{ avgSalary }}</p>
+    <p>Всего записей: {{ workersCount }}</p>
+
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">surname</th>
+        <th scope="col">middlename</th>
+        <th scope="col">gender</th>
+        <th scope="col">birthday</th>
+        <th scope="col">countchildren</th>
+        <th scope="col">stationstartdate</th>
+        <th scope="col">salary</th>
+        <th scope="col">departmentid</th>
+        <th scope="col">brigadeid</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let worker of workers">
+        <td>{{ worker.workerid }}</td>
+        <td>{{ worker.name }}</td>
+        <td>{{ worker.surname }}</td>
+        <td>{{ worker.middlename }}</td>
+        <td>{{ worker.gender }}</td>
+        <td>{{ worker.birthday }}</td>
+        <td>{{ worker.countchildren }}</td>
+        <td>{{ worker.stationstartdate }}</td>
+        <td>{{ worker.salary }}</td>
+        <td>{{ worker.departmentid }}</td>
+        <td>{{ worker.brigadeid }}</td>
+        <td><a href="mailto:{{ worker.name }}">{{ worker.name }}</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

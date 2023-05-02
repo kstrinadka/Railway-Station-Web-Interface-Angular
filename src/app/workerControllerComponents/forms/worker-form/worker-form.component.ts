@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WorkerService } from '../../service/worker/worker-service.service';
-import { Worker } from '../../model/worker/worker';
+import { Worker } from '../../model/dto/worker/worker';
 
 @Component({
   selector: 'app-worker-form',
@@ -20,7 +20,7 @@ export class WorkerFormComponent {
   }
 
   onSubmit() {
-    this.workerService.save(this.worker).subscribe(result => this.gotoWorkerList());
+    this.workerService.saveWorker(this.worker).subscribe(result => this.gotoWorkerList());
   }
 
   gotoWorkerList() {

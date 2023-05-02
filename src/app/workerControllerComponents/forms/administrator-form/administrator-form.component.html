@@ -1,0 +1,33 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #adminForm="ngForm">
+
+      <div class="form-group">
+        <label for="adminid">worker id</label>
+        <input type="text" [(ngModel)]="admin.adminid"
+               class="form-control"
+               id="adminid"
+               name="adminid"
+               placeholder="Enter worker id"
+               required #adminid="ngModel">
+      </div>
+      <div [hidden]="!adminid.pristine" class="alert alert-danger">worker id is required</div>
+
+      <div class="form-group">
+        <label for="hisdepartmentid">department id</label>
+        <input type="text" [(ngModel)]="admin.hisdepartmentid"
+               class="form-control"
+               id="hisdepartmentid"
+               name="hisdepartmentid"
+               placeholder="Enter your department id"
+               required #hisdepartmentid="ngModel">
+        <div [hidden]="!hisdepartmentid.pristine" class="alert alert-danger">department id is required</div>
+      </div>
+
+
+      <button type="submit" [disabled]="!adminForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>

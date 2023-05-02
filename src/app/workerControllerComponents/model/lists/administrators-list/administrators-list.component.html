@@ -1,0 +1,25 @@
+<div class="card my-5">
+  <div class="card-body">
+
+
+
+    <p>Всего записей: {{ adminsCount }}</p>
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">worker id</th>
+        <th scope="col">department id</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let admin of admins">
+        <td>{{ admin.adminid }}</td>
+        <td>{{ admin.hisdepartmentid }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
