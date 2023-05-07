@@ -1,1 +1,80 @@
-<p>flight-list works!</p>
+<div class="card my-5">
+  <div class="card-body">
+
+
+    <form>
+      <label for="number-input">Получить перечень всех рейсов: </label>
+      <button (click)="findAll()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень отмененных pейсов полностью:</label>
+      <button (click)="getAllCanceledFlights()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input-final-station">Получить перечень отмененных pейсов в указанном напpавлении (id последней станции):</label>
+      <input id="number-input-final-station" name="number" type="number" #numberFinalStaion>
+      <button (click)="getAllCanceledFlightsOnDirectionForm(numberFinalStaion.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input-delayed-flight">Получить перечень отмененных pейсов по указанному маpшpуту:</label>
+      <input id="number-input-delayed-flight" name="number" type="number" #numberDelayedFlights>
+      <button (click)="getAllCanceledFlightsOnRouteForm(numberDelayedFlights.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень задеpжанных pейсов:</label>
+      <button (click)="getAllDelayedFlights()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень задеpжанных pейсов по указанной пpичине:</label>
+      <button (click)="getAllDelayedFlightsByReasonForm('Авария')">Авария</button>
+      <button (click)="getAllDelayedFlightsByReasonForm('Поломка')">Поломка</button>
+      <button (click)="getAllDelayedFlightsByReasonForm('Непогода')">Непогода</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень задеpжанных pейсов по указанному маpшpуту:</label>
+      <input id="number-input" name="number" type="number" #routeOfFlight>
+      <button (click)="getAllDelayedFlightsOnRouteForm(routeOfFlight .value)">Показать</button>
+    </form>
+
+
+    <p>Всего записей: {{ flightsCount }}</p>
+
+
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">flight number</th>
+        <th scope="col">traing number</th>
+        <th scope="col">departure</th>
+        <th scope="col">arrival</th>
+        <th scope="col">route number</th>
+        <th scope="col">cancel</th>
+        <th scope="col">cancelation reason</th>
+        <th scope="col">time delay</th>
+        <th scope="col">is delayed</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let flight of flights">
+        <td>{{ flight.flightnumber }}</td>
+        <td>{{ flight.trainnumber }}</td>
+        <td>{{ flight.departure }}</td>
+        <td>{{ flight.arrival }}</td>
+        <td>{{ flight.routenumber }}</td>
+        <td>{{ flight.cancel }}</td>
+        <td>{{ flight.reasoncancellation }}</td>
+        <td>{{ flight.timedelay }}</td>
+        <td>{{ flight.delay }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

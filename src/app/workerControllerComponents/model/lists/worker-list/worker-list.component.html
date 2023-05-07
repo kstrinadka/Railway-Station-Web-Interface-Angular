@@ -14,13 +14,13 @@
     </form>
 
     <form>
-      <label for="number-input">Получить перечень pаботников в указанной бригаде:</label>
+      <label for="number-input-brigade">Получить перечень pаботников в указанной бригаде:</label>
       <input id="number-input-brigade" name="number" type="number" #numberBrigadeInput>
       <button (click)="getByBrigadeIdForm(numberBrigadeInput.value)">Показать</button>
     </form>
 
     <form>
-      <label for="number-input">Получить перечень pаботников в бpигаде, обслуживающих некоторый локомотив:</label>
+      <label for="number-input-brigade-locomotive">Получить перечень pаботников в бpигаде, обслуживающих некоторый локомотив:</label>
       <input id="number-input-brigade-locomotive" name="number" type="number" #numberBrigadeLocomotiveInput>
       <button (click)="getBrigadeWorkersByLocomotiveForm(numberBrigadeLocomotiveInput.value)">Показать</button>
     </form>
@@ -36,7 +36,7 @@
     </form>
 
     <form>
-      <label for="number-input">Получить перечень водителей локомотивов прошедших медосмотр в указанный год:</label>
+      <label for="number-input-locomotive-medexam">Получить перечень водителей локомотивов прошедших медосмотр в указанный год:</label>
       <input id="number-input-locomotive-medexam" name="number" type="number" #numberLocomotiveDriversPassedMedExamInYear>
       <button (click)="getLocomotiveDriversPassedMedExamInYearForm(numberLocomotiveDriversPassedMedExamInYear.value)">Показать</button>
     </form>

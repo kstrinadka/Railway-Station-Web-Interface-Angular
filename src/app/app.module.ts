@@ -16,6 +16,7 @@ import { AdministratorFormComponent } from './workerControllerComponents/forms/a
 import { FlightMainComponent } from './flightControllerComponents/flight-main/flight-main.component';
 import { FlightFormComponent } from './flightControllerComponents/forms/flight-form/flight-form.component';
 import { FlightListComponent } from './flightControllerComponents/model/lists/flight-list/flight-list.component';
+import {FlightService} from "./flightControllerComponents/service/flight/flight.service";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FlightListComponent } from './flightControllerComponents/model/lists/fl
   ],
   providers: [
     UserService,
-    WorkerService],
+    WorkerService,
+    FlightService],
 
   // стартовый компонент, с которого стартует приложение
   bootstrap: [AppComponent]

@@ -12,6 +12,9 @@ import {
 import {
   AdministratorFormComponent
 } from "./workerControllerComponents/forms/administrator-form/administrator-form.component";
+import {FlightMainComponent} from "./flightControllerComponents/flight-main/flight-main.component";
+import {FlightListComponent} from "./flightControllerComponents/model/lists/flight-list/flight-list.component";
+import {FlightFormComponent} from "./flightControllerComponents/forms/flight-form/flight-form.component";
 
 // связывание адреса и компонента
 const routes: Routes = [
@@ -23,6 +26,10 @@ const routes: Routes = [
   { path: 'addworker', component: WorkerFormComponent },
   { path: 'administrators', component: AdministratorsListComponent },
   { path: 'addadministrator', component: AdministratorFormComponent },
+
+  { path: 'flightcontroller', component: FlightMainComponent },
+  { path: 'flights', component: FlightListComponent },
+  { path: 'addflight', component: FlightFormComponent },
 ];
 
 @NgModule({
