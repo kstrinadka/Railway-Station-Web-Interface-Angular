@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Worker } from '../../dto/worker/worker';
 import {WorkerService} from "../../../service/worker/worker-service.service";
-import {Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-worker-list',
@@ -19,9 +16,7 @@ export class WorkerListComponent{
 
 
 
-  constructor(private workerService: WorkerService,
-              private router: Router,
-              private formBuilder: FormBuilder) {
+  constructor(private workerService: WorkerService) {
   }
 
 

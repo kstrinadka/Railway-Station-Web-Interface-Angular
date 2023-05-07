@@ -13,6 +13,9 @@ import {WorkerService} from "./workerControllerComponents/service/worker/worker-
 import { WorkerMainComponent } from './workerControllerComponents/worker-main/worker-main.component';
 import { AdministratorsListComponent } from './workerControllerComponents/model/lists/administrators-list/administrators-list.component';
 import { AdministratorFormComponent } from './workerControllerComponents/forms/administrator-form/administrator-form.component';
+import { FlightMainComponent } from './flightControllerComponents/flight-main/flight-main.component';
+import { FlightFormComponent } from './flightControllerComponents/forms/flight-form/flight-form.component';
+import { FlightListComponent } from './flightControllerComponents/model/lists/flight-list/flight-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AdministratorFormComponent } from './workerControllerComponents/forms/a
     WorkerFormComponent,
     WorkerMainComponent,
     AdministratorsListComponent,
-    AdministratorFormComponent
+    AdministratorFormComponent,
+    FlightMainComponent,
+    FlightFormComponent,
+    FlightListComponent
   ],
   imports: [
     BrowserModule,
