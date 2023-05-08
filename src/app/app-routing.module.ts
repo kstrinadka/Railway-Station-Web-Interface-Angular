@@ -16,6 +16,9 @@ import {FlightFormComponent} from "./flightControllerComponents/forms/flight-for
 import {LocomotiveMainComponent} from "./locomotives/locomotive-main/locomotive-main.component";
 import {LocomotiveListComponent} from "./locomotives/model/locomotive-list/locomotive-list.component";
 import {LocomotiveFormComponent} from "./locomotives/locomotive-form/locomotive-form.component";
+import {PassengerMainComponent} from "./passengers/passenger-main/passenger-main.component";
+import {PassengerListComponent} from "./passengers/model/passenger-list/passenger-list.component";
+import {PassengerFormComponent} from "./passengers/passenger-form/passenger-form.component";
 
 // связывание адреса и компонента
 const routes: Routes = [
@@ -33,6 +36,10 @@ const routes: Routes = [
   { path: 'locomotivecontroller', component: LocomotiveMainComponent },
   { path: 'locomotives', component: LocomotiveListComponent },
   { path: 'addlocomotive', component: LocomotiveFormComponent },
+
+  { path: 'passengercontroller', component: PassengerMainComponent },
+  { path: 'passengers', component: PassengerListComponent },
+  { path: 'addpassenger', component: PassengerFormComponent },
 ];
 
 @NgModule({

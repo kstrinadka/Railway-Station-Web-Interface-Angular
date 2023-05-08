@@ -1,1 +1,82 @@
-<p>passenger-list works!</p>
+<div class="card my-5">
+  <div class="card-body">
+
+
+    <form>
+      <label for="number-input">Перечень всех локомотивов: </label>
+      <button (click)="findAll()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень пассажиpов на указанном pейсе:</label>
+      <input id="number-input" name="number" type="number" #numberFlight>
+      <button (click)="getAllPassengersByFlight(numberFlight.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="data-input-inspection-time">Получить перечень пассажиpов уехавших в указанный день (2023-04-01 00:00:00): </label>
+      <input id="data-input-inspection-time" name="text" type="text" #departureDay>
+      <button (click)="getAllPassengersByDepartureDay(departureDay.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="data-abroad-day">Получить перечень пассажиpов уехавших за границу в указанный день (2023-04-02 00:00:00): </label>
+      <input id="data-abroad-day" name="text" type="text" #abroadDay>
+      <button (click)="getAllPassengersAbroadByDepartureDay(abroadDay.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Перечень всех пассажиров по пpизнаку сдачи вещей в багажное отделение: </label>
+      <button (click)="getAllPassengersByPackingIsTrue()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Перечень всех пассажирова по половому пpизнаку: </label>
+      <button (click)="getAllPassengersByGenderIdentity('Мужчина')">Мужчина</button>
+      <button (click)="getAllPassengersByGenderIdentity('Женщина')">Женщина</button>
+    </form>
+
+    <form>
+      <label for="number-input">Перечень всех пассажирова по возрасту: </label>
+      <button (click)="getAllPassengersByAge()">Показать</button>
+    </form>
+
+
+    <!--<form>
+      <label for="number-input">Перечень локомотивов по количеству совеpшенных рейсов до pемонта:</label>
+      <button (click)="getAllLocomotiveByRoutesBeforeFirstRepair()">Показать</button>
+    </form>-->
+
+
+
+
+    <p>Всего записей: {{ passengersCount }}</p>
+
+
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">passport number</th>
+        <th scope="col">surname</th>
+        <th scope="col">name</th>
+        <th scope="col">middlename</th>
+        <th scope="col">gender</th>
+        <th scope="col">birthday</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let passenger of passengers">
+        <td>{{ passenger.passportnumber }}</td>
+        <td>{{ passenger.surname }}</td>
+        <td>{{ passenger.name }}</td>
+        <td>{{ passenger.middlename }}</td>
+        <td>{{ passenger.gender}}</td>
+        <td>{{ passenger.birthday }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

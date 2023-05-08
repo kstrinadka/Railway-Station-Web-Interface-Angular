@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class PassengerMainComponent {
 
+  title: string;
+
+
+  constructor() {
+    this.title = 'Passenger Controller';
+  }
+
+  ngOnInit(): void {
+  }
 }

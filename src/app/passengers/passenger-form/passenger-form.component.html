@@ -1,1 +1,67 @@
-<p>passenger-form works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #passengerForm="ngForm">
+
+
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" [(ngModel)]="passenger.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Enter name"
+               required #name="ngModel">
+        <div [hidden]="!name.pristine" class="alert alert-danger">name is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="surname">surname</label>
+        <input type="text" [(ngModel)]="passenger.surname"
+               class="form-control"
+               id="surname"
+               name="surname"
+               placeholder="Enter surname"
+               required #surname="ngModel">
+      </div>
+      <div [hidden]="!surname.pristine" class="alert alert-danger">surname is required</div>
+
+      <div class="form-group">
+        <label for="middlename">middlename</label>
+        <input type="text" [(ngModel)]="passenger.middlename"
+               class="form-control"
+               id="middlename"
+               name="middlename"
+               placeholder="Enter middlename"
+               required #middlename="ngModel">
+        <div [hidden]="!middlename.pristine" class="alert alert-danger">middlename is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">gender</label>
+        <input type="text" [(ngModel)]="passenger.gender"
+               class="form-control"
+               id="gender"
+               name="gender"
+               placeholder="Enter gender"
+               required #gender="ngModel">
+        <div [hidden]="!gender.pristine" class="alert alert-danger">gender is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="birthday">birthday</label>
+        <input type="text" [(ngModel)]="passenger.birthday"
+               class="form-control"
+               id="birthday"
+               name="birthday"
+               placeholder="Enter birthday date"
+               required #birthday="ngModel">
+        <div [hidden]="!birthday.pristine" class="alert alert-danger">birthday day is required</div>
+      </div>
+
+
+      <button type="submit" [disabled]="!passengerForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>

@@ -21,6 +21,7 @@ import {LocomotiveService} from "./locomotives/service/locomotive.service";
 import { PassengerFormComponent } from './passengers/passenger-form/passenger-form.component';
 import { PassengerMainComponent } from './passengers/passenger-main/passenger-main.component';
 import { PassengerListComponent } from './passengers/model/passenger-list/passenger-list.component';
+import {PassengerService} from "./passengers/service/passenger.service";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { PassengerListComponent } from './passengers/model/passenger-list/passen
   providers: [
     WorkerService,
     FlightService,
-    LocomotiveService],
+    LocomotiveService,
+    PassengerService],
 
   // стартовый компонент, с которого стартует приложение
   bootstrap: [AppComponent]

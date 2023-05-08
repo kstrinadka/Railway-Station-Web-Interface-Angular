@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Locomotive} from "../model/dto/locomotive";
-import {Flight} from "../../flightControllerComponents/model/dto/flight/flight";
 
 @Injectable()
 export class LocomotiveService {
@@ -21,7 +20,7 @@ export class LocomotiveService {
   //todo - не рабочий
   public saveLocomotive(locomotive: Locomotive) {
     let url = `http://localhost:8080/locomotives/all`;
-    return this.http.post<Flight>(url, locomotive);
+    return this.http.post<Locomotive>(url, locomotive);
   }
 
   /**
