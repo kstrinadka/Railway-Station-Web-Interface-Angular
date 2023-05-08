@@ -22,6 +22,10 @@ import { PassengerFormComponent } from './passengers/passenger-form/passenger-fo
 import { PassengerMainComponent } from './passengers/passenger-main/passenger-main.component';
 import { PassengerListComponent } from './passengers/model/passenger-list/passenger-list.component';
 import {PassengerService} from "./passengers/service/passenger.service";
+import { RouteMainComponent } from './routes/route-main/route-main.component';
+import { RouteListComponent } from './routes/model/route-list/route-list.component';
+import { RouteFormComponent } from './routes/route-form/route-form.component';
+import {RouteService} from "./routes/service/route.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import {PassengerService} from "./passengers/service/passenger.service";
     LocomotiveListComponent,
     PassengerFormComponent,
     PassengerMainComponent,
-    PassengerListComponent
+    PassengerListComponent,
+    RouteMainComponent,
+    RouteListComponent,
+    RouteFormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,8 @@ import {PassengerService} from "./passengers/service/passenger.service";
     WorkerService,
     FlightService,
     LocomotiveService,
-    PassengerService],
+    PassengerService,
+    RouteService],
 
   // стартовый компонент, с которого стартует приложение
   bootstrap: [AppComponent]

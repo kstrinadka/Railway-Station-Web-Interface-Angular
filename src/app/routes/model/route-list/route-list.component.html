@@ -1,0 +1,57 @@
+<div class="card my-5">
+  <div class="card-body">
+
+
+    <form>
+      <label for="number-input">Перечень всех маршрутов: </label>
+      <button (click)="findAll()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень маршрутов указанной категоpии </label>
+      <button (click)="getAllRoutesByCategory('Туристический')">Туристический</button>
+      <button (click)="getAllRoutesByCategory('Специальный')">Специальный</button>
+      <button (click)="getAllRoutesByCategory('Внутренний')">Внутренний</button>
+      <button (click)="getAllRoutesByCategory('Международный')">Международный</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень маршрутов следующих в определенном напpавлении -> 'Station 4', ...</label>
+      <input id="number-input" name="number" type="text" #numberFlight>
+      <button (click)="getAllRoutesByDirection(numberFlight.value)">Показать</button>
+    </form>
+
+    <!--<form>
+      <label for="number-input">Перечень локомотивов по количеству совеpшенных рейсов до pемонта:</label>
+      <button (click)="getAllLocomotiveByRoutesBeforeFirstRepair()">Показать</button>
+    </form>-->
+
+
+
+
+    <p>Всего записей: {{ routesCount }}</p>
+
+
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">route number</th>
+        <th scope="col">category</th>
+        <th scope="col">duration</th>
+        <th scope="col">cost</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let route of routes">
+        <td>{{ route.routenumber }}</td>
+        <td>{{ route.category }}</td>
+        <td>{{ route.duration }}</td>
+        <td>{{ route.cost }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
