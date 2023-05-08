@@ -19,7 +19,7 @@ export class FlightService {
     return this.http.get<Flight[]>(url);
   }
 
-  //todo
+  //todo - не рабочий
   public saveFlight(flight: Flight) {
     let url = `http://localhost:8080/flights/all`;
     return this.http.post<Flight>(url, flight);
