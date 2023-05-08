@@ -1,0 +1,77 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #flightForm="ngForm">
+
+      <div class="form-group">
+        <label for="stationid">Staion Id</label>
+        <input type="text" [(ngModel)]="locomotive.stationid"
+               class="form-control"
+               id="stationid"
+               name="stationid"
+               placeholder="Enter Staion Id"
+               required #stationid="ngModel">
+      </div>
+      <div [hidden]="!stationid.pristine" class="alert alert-danger">Staion Id is required</div>
+
+      <div class="form-group">
+        <label for="birthday">Birthday</label>
+        <input type="text" [(ngModel)]="locomotive.birthday"
+               class="form-control"
+               id="birthday"
+               name="birthday"
+               placeholder="Enter locomotive date of manufacture"
+               required #birthday="ngModel">
+        <div [hidden]="!birthday.pristine" class="alert alert-danger">birthday date is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="locomotivebrigadeid">locomotive brigade id</label>
+        <input type="text" [(ngModel)]="locomotive.locomotivebrigadeid"
+               class="form-control"
+               id="locomotivebrigadeid"
+               name="locomotivebrigadeid"
+               placeholder="Enter locomotivebrigadeid"
+               required #locomotivebrigadeid="ngModel">
+        <div [hidden]="!locomotivebrigadeid.pristine" class="alert alert-danger">locomotive brigade id time is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="repairmenbrigadeid">repairmenbrigadeid</label>
+        <input type="text" [(ngModel)]="locomotive.repairmenbrigadeid"
+               class="form-control"
+               id="repairmenbrigadeid"
+               name="repairmenbrigadeid"
+               placeholder="Enter repairmen brigade id"
+               required #repairmenbrigadeid="ngModel">
+        <div [hidden]="!repairmenbrigadeid.pristine" class="alert alert-danger">repairmen brigade id is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="numberofroutes">numberofroutes</label>
+        <input type="text" [(ngModel)]="locomotive.numberofroutes"
+               class="form-control"
+               id="numberofroutes"
+               name="numberofroutes"
+               placeholder="Enter number of routes for this locomotive"
+               required #numberofroutes="ngModel">
+        <div [hidden]="!numberofroutes.pristine" class="alert alert-danger">number of routes is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="seatsnumber">seats number</label>
+        <input type="text" [(ngModel)]="locomotive.seatsnumber"
+               class="form-control"
+               id="seatsnumber"
+               name="seatsnumber"
+               placeholder="Enter number of seats in locomotive"
+               required #seatsnumber="ngModel">
+        <div [hidden]="!seatsnumber.pristine" class="alert alert-danger">number of seats is required</div>
+      </div>
+
+
+      <button type="submit" [disabled]="!flightForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>
