@@ -1,0 +1,47 @@
+<div class="card my-5">
+  <div class="card-body">
+
+
+    <form>
+      <label for="number-input">Перечень всех поездов: </label>
+      <button (click)="findAll()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень поездов на указанном маpшpуте: </label>
+      <input id="number-input" name="number" type="number" #numberFlight>
+      <button (click)="getAllTrainsOnRoute(numberFlight.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень поездов по длительности маршрута: </label>
+      <button (click)="getAllTrainsByRouteDuration()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень поездов по цене билета: </label>
+      <button (click)="getAllTrainsByTicketCost()">Показать</button>
+    </form>
+
+    <p>Всего записей: {{ trainsCount }}</p>
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">train number</th>
+        <th scope="col">type train</th>
+        <th scope="col">locomotive id</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let train of trains">
+        <td>{{ train.trainnumber }}</td>
+        <td>{{ train.typetrain }}</td>
+        <td>{{ train.locomotive.locomotiveid }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

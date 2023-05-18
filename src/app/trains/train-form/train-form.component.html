@@ -1,0 +1,35 @@
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #trainForm="ngForm">
+
+
+
+      <div class="form-group">
+        <label for="typetrain">typetrain</label>
+        <input type="text" [(ngModel)]="train.typetrain"
+               class="form-control"
+               id="typetrain"
+               name="typetrain"
+               placeholder="Enter typetrain"
+               required #typetrain="ngModel">
+        <div [hidden]="!typetrain.pristine" class="alert alert-danger">typetrain is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="locomotiveid">locomotiveid</label>
+        <input type="text" [(ngModel)]="train.locomotiveid"
+               class="form-control"
+               id="locomotiveid"
+               name="locomotiveid"
+               placeholder="Enter locomotiveid"
+               required #locomotiveid="ngModel">
+        <div [hidden]="!locomotiveid.pristine" class="alert alert-danger">locomotiveid is required</div>
+      </div>
+
+      <button type="submit" [disabled]="!trainForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>

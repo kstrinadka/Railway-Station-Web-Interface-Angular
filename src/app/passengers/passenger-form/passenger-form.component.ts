@@ -11,6 +11,7 @@ import {PassengerService} from "../service/passenger.service";
 export class PassengerFormComponent {
 
   passenger: Passenger;
+  error: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,7 +21,16 @@ export class PassengerFormComponent {
   }
 
   onSubmit() {
-    this.passengerService.savePassenger(this.passenger).subscribe(result => this.gotoPassengerList());
+    this.passengerService.savePassenger(this.passenger).subscribe(
+      passenger => {
+        console.log('Passenger created:', passenger);
+        this.gotoPassengerList();
+      },
+      error => {
+        console.log('Error creating passenger:', error);
+        this.error = 'Error creating passenger';
+      }
+    );
   }
 
   gotoPassengerList() {

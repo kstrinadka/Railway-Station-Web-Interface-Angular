@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Locomotive} from "../model/dto/locomotive";
+import {map, Observable} from "rxjs";
+import {Locomotive, LocomotiveFront} from "../model/dto/locomotive";
 
 @Injectable()
 export class LocomotiveService {
@@ -14,12 +14,35 @@ export class LocomotiveService {
    */
   public  findAll(): Observable<Locomotive[]> {
     let url = `http://localhost:8080/locomotives/all`;
-    return this.http.get<Locomotive[]>(url);
+    return this.http.get<Locomotive[]>(url)
+      .pipe(
+        map(locomotives => this.transformLocomotives(locomotives))
+      );
   }
 
-  //todo - не рабочий
-  public saveLocomotive(locomotive: Locomotive) {
-    let url = `http://localhost:8080/locomotives/all`;
+  private transformLocomotives(locomotives: Locomotive[]): Locomotive[] {
+    return locomotives.map(locomotive => {
+      return {
+        ...locomotive,
+
+        station: {...locomotive.station},
+
+        locomotivebrigade: {
+          ...locomotive.locomotivebrigade,
+          department : {...locomotive.locomotivebrigade.department}
+        },
+
+        repairmenbrigade: {
+          ...locomotive.repairmenbrigade,
+          department: {...locomotive.repairmenbrigade.department}
+        }
+      }
+    });
+  }
+
+
+  public saveLocomotive(locomotive: LocomotiveFront) {
+    let url = `http://localhost:8080/locomotives/createfront`;
     return this.http.post<Locomotive>(url, locomotive);
   }
 

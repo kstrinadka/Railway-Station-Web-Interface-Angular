@@ -53,7 +53,7 @@ export class PassengerListComponent {
   }
 
   /**
-   *  обновляет список рейсов на сайте
+   *  обновляет список пассажирова после запроса на бэк
    */
   private updateParameters(data: Passenger[]): void {
     this.passengers = data;

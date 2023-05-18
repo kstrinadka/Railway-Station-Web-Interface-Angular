@@ -22,6 +22,12 @@ import {PassengerFormComponent} from "./passengers/passenger-form/passenger-form
 import {RouteMainComponent} from "./routes/route-main/route-main.component";
 import {RouteListComponent} from "./routes/model/route-list/route-list.component";
 import {RouteFormComponent} from "./routes/route-form/route-form.component";
+import {TicketMainComponent} from "./tickets/ticket-main/ticket-main.component";
+import {TicketListComponent} from "./tickets/model/ticket-list/ticket-list.component";
+import {TicketFormComponent} from "./tickets/ticket-form/ticket-form.component";
+import {TrainMainComponent} from "./trains/train-main/train-main.component";
+import {TrainListComponent} from "./trains/model/train-list/train-list.component";
+import {TrainFormComponent} from "./trains/train-form/train-form.component";
 
 // связывание адреса и компонента
 const routes: Routes = [
@@ -47,6 +53,14 @@ const routes: Routes = [
   { path: 'routecontroller', component: RouteMainComponent },
   { path: 'routes', component: RouteListComponent },
   { path: 'addroute', component: RouteFormComponent },
+
+  { path: 'ticketcontroller', component: TicketMainComponent },
+  { path: 'tickets', component: TicketListComponent },
+  { path: 'addticket', component: TicketFormComponent },
+
+  { path: 'traincontroller', component: TrainMainComponent },
+  { path: 'trains', component: TrainListComponent },
+  { path: 'addtrain', component: TrainFormComponent },
 ];
 
 @NgModule({

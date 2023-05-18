@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Flight} from "../../model/dto/flight/flight";
+import {map, Observable} from "rxjs";
+import {Flight, FlightFront} from "../../model/dto/flight/flight";
 
 @Injectable()
 export class FlightService {
@@ -16,12 +16,44 @@ export class FlightService {
    */
   public findAll(): Observable<Flight[]> {
     let url = `http://localhost:8080/flights/all`;
-    return this.http.get<Flight[]>(url);
+    return this.http.get<Flight[]>(url).pipe(
+      map(workers => this.transformFlights(workers))
+    );
   }
 
-  //todo - не рабочий
-  public saveFlight(flight: Flight) {
-    let url = `http://localhost:8080/flights/all`;
+  private transformFlights(flights: Flight[]): Flight[] {
+    return flights.map(flight => {
+      return {
+        ...flight,
+
+        train: {
+          ...flight.train,
+
+          locomotive: {
+            ...flight.train.locomotive,
+
+            station: {...flight.train.locomotive.station},
+
+            locomotivebrigade: {
+              ...flight.train.locomotive.locomotivebrigade,
+              department : {...flight.train.locomotive.locomotivebrigade.department}
+            },
+
+            repairmenbrigade: {
+              ...flight.train.locomotive.repairmenbrigade,
+              department: {...flight.train.locomotive.repairmenbrigade.department}
+            }
+          }
+        },
+
+        route: {...flight.route,},
+      }
+    });
+  }
+
+
+  public saveFlight(flight: FlightFront) {
+    let url = `http://localhost:8080/flights/createfront`;
     return this.http.post<Flight>(url, flight);
   }
 

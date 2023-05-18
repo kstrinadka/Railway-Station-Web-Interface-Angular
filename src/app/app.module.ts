@@ -26,6 +26,14 @@ import { RouteMainComponent } from './routes/route-main/route-main.component';
 import { RouteListComponent } from './routes/model/route-list/route-list.component';
 import { RouteFormComponent } from './routes/route-form/route-form.component';
 import {RouteService} from "./routes/service/route.service";
+import { TicketMainComponent } from './tickets/ticket-main/ticket-main.component';
+import { TicketListComponent } from './tickets/model/ticket-list/ticket-list.component';
+import { TicketFormComponent } from './tickets/ticket-form/ticket-form.component';
+import {TicketService} from "./tickets/service/ticket.service";
+import { TrainListComponent } from './trains/model/train-list/train-list.component';
+import { TrainFormComponent } from './trains/train-form/train-form.component';
+import { TrainMainComponent } from './trains/train-main/train-main.component';
+import {TrainService} from "./trains/service/train.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +54,13 @@ import {RouteService} from "./routes/service/route.service";
     PassengerListComponent,
     RouteMainComponent,
     RouteListComponent,
-    RouteFormComponent
+    RouteFormComponent,
+    TicketMainComponent,
+    TicketListComponent,
+    TicketFormComponent,
+    TrainListComponent,
+    TrainFormComponent,
+    TrainMainComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +74,9 @@ import {RouteService} from "./routes/service/route.service";
     FlightService,
     LocomotiveService,
     PassengerService,
-    RouteService],
+    RouteService,
+    TicketService,
+    TrainService],
 
   // стартовый компонент, с которого стартует приложение
   bootstrap: [AppComponent]

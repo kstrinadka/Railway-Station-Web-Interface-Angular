@@ -69,10 +69,10 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">locomotive id</th>
-        <th scope="col">station id</th>
+        <th scope="col">station name</th>
         <th scope="col">manufacture date (birthday)</th>
-        <th scope="col">locomotive brigade id</th>
-        <th scope="col">repairmen brigade id</th>
+        <th scope="col">locomotive brigade name</th>
+        <th scope="col">repairmen brigade name</th>
         <th scope="col">number of routes</th>
         <th scope="col">seats number</th>
       </tr>
@@ -81,10 +81,10 @@
       <tbody>
       <tr *ngFor="let locomotive of locomotives">
         <td>{{ locomotive.locomotiveid }}</td>
-        <td>{{ locomotive.stationid }}</td>
+        <td>{{ locomotive.station.stationname }}</td>
         <td>{{ locomotive.birthday }}</td>
-        <td>{{ locomotive.locomotivebrigadeid }}</td>
-        <td>{{ locomotive.repairmenbrigadeid}}</td>
+        <td>{{ locomotive.locomotivebrigade.name }}</td>
+        <td>{{ locomotive.repairmenbrigade.name}}</td>
         <td>{{ locomotive.numberofroutes }}</td>
         <td>{{ locomotive.seatsnumber }}</td>
       </tr>

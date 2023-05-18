@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WorkerService } from '../../service/worker/worker-service.service';
-import { Worker } from '../../model/dto/worker/worker';
+import {WorkerFront} from '../../model/dto/worker/worker';
 
 @Component({
   selector: 'app-worker-form',
@@ -10,17 +10,18 @@ import { Worker } from '../../model/dto/worker/worker';
 })
 export class WorkerFormComponent {
 
-  worker: Worker;
+  worker: WorkerFront;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private workerService: WorkerService) {
-    this.worker = new Worker();
+    this.worker = new WorkerFront();
   }
 
   onSubmit() {
-    this.workerService.saveWorker(this.worker).subscribe(result => this.gotoWorkerList());
+    this.workerService.saveWorker(this.worker).
+    subscribe(result => this.gotoWorkerList());
   }
 
   gotoWorkerList() {

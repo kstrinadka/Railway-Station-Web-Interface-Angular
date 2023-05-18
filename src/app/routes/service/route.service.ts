@@ -21,8 +21,8 @@ export class RouteService {
   }
 
   //todo - не рабочий
-  public saveRoutes(route: Route) {
-    let url = `http://localhost:8080/routes/all`;
+  public saveRoute(route: Route) {
+    let url = `http://localhost:8080/routes/create`;
     return this.http.post<Route>(url, route);
   }
 

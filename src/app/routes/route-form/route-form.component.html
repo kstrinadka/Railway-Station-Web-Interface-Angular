@@ -1,18 +1,8 @@
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
 <div class="card my-5">
   <div class="card-body">
     <form (ngSubmit)="onSubmit()" #routeForm="ngForm">
 
-
-      <div class="form-group">
-        <label for="routenumber">route number</label>
-        <input type="text" [(ngModel)]="routeDto.routenumber"
-               class="form-control"
-               id="routenumber"
-               name="routenumber"
-               placeholder="Enter routenumber"
-               required #routenumber="ngModel">
-        <div [hidden]="!routenumber.pristine" class="alert alert-danger">routenumber is required</div>
-      </div>
 
       <div class="form-group">
         <label for="category">category</label>

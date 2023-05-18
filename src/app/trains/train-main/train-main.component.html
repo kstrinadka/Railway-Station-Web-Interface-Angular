@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-dark my-5">
+        <div class="card-body">
+          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+          <ul class="text-center list-inline py-3">
+
+            <li class="list-inline-item">
+              <div><a routerLink="/trains" class="btn btn-info">List Trains</a></div>
+              <div><a routerLink="/addtrain" class="btn btn-info">Add Train</a></div>
+            </li>
+
+
+          </ul>
+        </div>
+
+
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

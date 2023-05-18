@@ -4,3 +4,8 @@ export class Route {
   duration: number;
   cost: number;
 }
+
+export class Station {
+  stationid: number;
+  stationname: string;
+}

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Worker } from '../../model/dto/worker/worker';
+import {Worker, WorkerFront} from '../../model/dto/worker/worker';
 import {catchError, map, Observable, of} from 'rxjs';
-import {WorkerMainComponent} from "../../worker-main/worker-main.component";
-import {WorkerListComponent} from "../../model/lists/worker-list/worker-list.component";
 import {Administrator} from "../../model/dto/administrator/administrator";
 
 @Injectable()
@@ -30,20 +28,39 @@ export class WorkerService {
     this.bySalaryUrl = 'http://localhost:8080/workers/salary'
   }
 
+
   public findAll(): Observable<Worker[]> {
-    return this.http.get<Worker[]>(this.allWorkersUrl);
+    return this.http.get<Worker[]>(this.allWorkersUrl)
+      .pipe(
+        map(workers => this.transformWorkers(workers))
+      );
   }
 
-  //todo
-  public saveWorker(worker: Worker) {
-    return this.http.post<Worker>(this.allWorkersUrl, worker);
+  private transformWorkers(workers: Worker[]): Worker[] {
+    return workers.map(worker => {
+      return {
+        ...worker,
+        department: {...worker.department},
+        brigade: {
+          ...worker.brigade,
+          department: {...worker.brigade.department}
+        }
+      }
+    });
+  }
+
+
+
+  public saveWorker(workerFront: WorkerFront) {
+    let url = `http://localhost:8080/workers/createfront`;
+    return this.http.post<WorkerFront>(url, workerFront);
   }
 
   //todo
   saveAdmin(admin: Administrator) {
-    return this.http.post<Administrator>(this.allWorkersUrl, admin);
+    let url = `http://localhost:8080/workers/createfront`;
+    return this.http.post<Administrator>(url, admin);
   }
-
 
   /**
    *  Получить перечень pаботников указанного отдела

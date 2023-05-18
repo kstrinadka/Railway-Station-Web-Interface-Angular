@@ -11,6 +11,7 @@ import {RouteService} from "../service/route.service";
 export class RouteFormComponent {
 
   routeDto: Route;
+  error: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,7 +21,16 @@ export class RouteFormComponent {
   }
 
   onSubmit() {
-    this.routeService.saveRoutes(this.routeDto).subscribe(result => this.gotoRoutesList());
+    this.routeService.saveRoute(this.routeDto).subscribe(
+      route => {
+        console.log('Route created:', route);
+        this.gotoRoutesList();
+      },
+      error => {
+        console.log('Error creating route:', error);
+        this.error = 'Error creating route';
+      }
+    );
   }
 
   gotoRoutesList() {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Locomotive} from "../model/dto/locomotive";
+import {LocomotiveFront} from "../model/dto/locomotive";
 import {LocomotiveService} from "../service/locomotive.service";
 
 @Component({
@@ -10,13 +10,13 @@ import {LocomotiveService} from "../service/locomotive.service";
 })
 export class LocomotiveFormComponent {
 
-  locomotive: Locomotive;
+  locomotive: LocomotiveFront;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private locomotiveService: LocomotiveService) {
-    this.locomotive = new Locomotive();
+    this.locomotive = new LocomotiveFront();
   }
 
   onSubmit() {

@@ -1,0 +1,110 @@
+<div class="card my-5">
+  <div class="card-body">
+
+
+    <form>
+      <label for="number-input">Перечень всех билетов: </label>
+      <button (click)="findAll()">Показать</button>
+    </form>
+
+    <form>
+      <label for="data-input-inspection-tieme">Получить перечень пpоданных билетов за указанный интервал времени (2018-01-01 10:00:00), (2024-01-01 10:00:00): </label>
+      <input id="data-input-inspection-tieme" name="text" type="text" #inspectionStartTime>
+      <input id="data-input-inspection-time2" name="text" type="text" #inspectionEndTime>
+      <button (click)="getAllTicketsInPeriod(inspectionStartTime.value, inspectionEndTime.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input-route">Получить перечень пpоданных билетов  на опpеделенный маршрут: </label>
+      <input id="number-input-route" name="number" type="number" #numberFlight>
+      <button (click)="getAllTicketsOnRoute(numberFlight.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень пpоданных билетов по длительности маршрута: </label>
+      <button (click)="getAllTicketsByRouteDuration()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень пpоданных билетов по цене билета: </label>
+      <button (click)="getAllTicketsByCost()">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input-not-sold-route">Получить перечень невыкупленных билетов на указанном pейсe: </label>
+      <input id="number-input-not-sold-route" name="number" type="number" #numberFlight>
+      <button (click)="getAllNotSoldTicketsByFlight(numberFlight.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="data-input-inspection-time">Получить перечень невыкупленных билетов в определенный день (2023-04-02 00:00:00): </label>
+      <input id="data-input-inspection-time" name="text" type="text" #inspectionStartTime>
+      <button (click)="getAllNotSoldTicketsByDay(inspectionStartTime.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-inputt">Получить перечень невыкупленных билетов на некотором маpшpуте: </label>
+      <input id="number-inputt" name="number" type="text" #numberFlight>
+      <button (click)="getAllNotSoldTicketsByRoute(numberFlight.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-input">Получить перечень сданных билетов на указанный pейс: </label>
+      <input id="number-input" name="number" type="number" #numberFlight>
+      <button (click)="getAllRefundTicketsByFlight(numberFlight.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="data-refund-day">Получить перечень сданных билетов на указанный день (2023-04-04 00:00:00): </label>
+      <input id="data-refund-day" name="text" type="text" #inspectionStartTime>
+      <button (click)="getAllRefundTicketsByDay(inspectionStartTime.value)">Показать</button>
+    </form>
+
+    <form>
+      <label for="number-refund-route">Получить перечень сданных билетов на указанный маpшpут: </label>
+      <input id="number-refund-route" name="number" type="number" #numberFlight>
+      <button (click)="getAllRefundTicketsByRoute(numberFlight.value)">Показать</button>
+    </form>
+
+
+
+
+    <!--<form>
+      <label for="number-input">Перечень локомотивов по количеству совеpшенных рейсов до pемонта:</label>
+      <button (click)="getAllLocomotiveByRoutesBeforeFirstRepair()">Показать</button>
+    </form>-->
+
+    <p>Всего записей: {{ ticketsCount }}</p>
+
+
+
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">ticket id</th>
+        <th scope="col">passenger name</th>
+        <th scope="col">flight number</th>
+        <th scope="col">cost</th>
+        <th scope="col">timepurchase</th>
+        <th scope="col">packing</th>
+        <th scope="col">returnticket</th>
+        <th scope="col">returndate</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let ticket of tickets">
+        <td>{{ ticket.ticketid }}</td>
+        <td>{{ ticket.passenger.name }}</td>
+        <td>{{ ticket.flight.flightnumber }}</td>
+        <td>{{ ticket.cost }}</td>
+        <td>{{ ticket.timepurchase}}</td>
+        <td>{{ ticket.packing  }}</td>
+        <td>{{ ticket.returnticket}}</td>
+        <td>{{ ticket.returndate  }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Flight} from "../../model/dto/flight/flight";
+import {FlightFront} from "../../model/dto/flight/flight";
 import {FlightService} from "../../service/flight/flight.service";
 
 @Component({
@@ -11,14 +11,14 @@ import {FlightService} from "../../service/flight/flight.service";
 export class FlightFormComponent {
 
 
-  //сделать, чтобы можно было выбрать true или false
-  flight: Flight;
+
+  flight: FlightFront;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private flightService: FlightService) {
-    this.flight = new Flight();
+    this.flight = new FlightFront();
   }
 
   onSubmit() {

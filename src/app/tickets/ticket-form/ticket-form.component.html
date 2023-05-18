@@ -1,0 +1,90 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #ticketForm="ngForm">
+
+
+      <div class="form-group">
+        <label for="passengerpassport">passenger passport</label>
+        <input type="text" [(ngModel)]="ticket.passengerpassport"
+               class="form-control"
+               id="passengerpassport"
+               name="passengerpassport"
+               placeholder="Enter passengerpassport"
+               required #passengerpassport="ngModel">
+        <div [hidden]="!passengerpassport.pristine" class="alert alert-danger">passengerpassport is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="flightnumber">flight number</label>
+        <input type="text" [(ngModel)]="ticket.flightnumber"
+               class="form-control"
+               id="flightnumber"
+               name="flightnumber"
+               placeholder="Enter flightnumber"
+               required #flightnumber="ngModel">
+        <div [hidden]="!flightnumber.pristine" class="alert alert-danger">flight number is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="cost">cost</label>
+        <input type="text" [(ngModel)]="ticket.cost"
+               class="form-control"
+               id="cost"
+               name="cost"
+               placeholder="Enter ticket cost"
+               required #cost="ngModel">
+        <div [hidden]="!cost.pristine" class="alert alert-danger">ticket cost is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="timepurchase">timepurchase. (2023-03-04T18:00:00)</label>
+        <input type="text" [(ngModel)]="ticket.timepurchase"
+               class="form-control"
+               id="timepurchase"
+               name="timepurchase"
+               placeholder="Enter timepurchase"
+               required #timepurchase="ngModel">
+        <div [hidden]="!timepurchase.pristine" class="alert alert-danger">timepurchase is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="packing">packing. (true, false)</label>
+        <input type="text" [(ngModel)]="ticket.packing"
+               class="form-control"
+               id="packing"
+               name="packing"
+               placeholder="Enter packing state"
+               required #packing="ngModel">
+        <div [hidden]="!packing.pristine" class="alert alert-danger">packing state is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="returnticket">returnticket. (true, false)</label>
+        <input type="text" [(ngModel)]="ticket.returnticket"
+               class="form-control"
+               id="returnticket"
+               name="returnticket"
+               placeholder="Enter returnticket state"
+               required #returnticket="ngModel">
+        <div [hidden]="!returnticket.pristine" class="alert alert-danger">returnticket state is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="returndate">returndate. (null or 2023-04-14)</label>
+        <input type="text" [(ngModel)]="ticket.returndate"
+               class="form-control"
+               id="returndate"
+               name="returndate"
+               placeholder="Enter returndate"
+               required #returndate="ngModel">
+        <div [hidden]="!returndate.pristine" class="alert alert-danger">returndate is required</div>
+      </div>
+
+
+
+      <button type="submit" [disabled]="!ticketForm.form.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>

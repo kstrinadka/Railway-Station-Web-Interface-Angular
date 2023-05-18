@@ -23,7 +23,7 @@ export class PassengerService {
 
   //todo - не рабочий
   public savePassenger(passenger: Passenger) {
-    let url = `http://localhost:8080/passengers/all`;
+    let url = `http://localhost:8080/passengers/create`;
     return this.http.post<Passenger>(url, passenger);
   }
 

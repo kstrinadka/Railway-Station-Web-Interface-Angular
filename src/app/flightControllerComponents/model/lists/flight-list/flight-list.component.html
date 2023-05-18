@@ -52,7 +52,7 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">flight number</th>
-        <th scope="col">traing number</th>
+        <th scope="col">traing</th>
         <th scope="col">departure</th>
         <th scope="col">arrival</th>
         <th scope="col">route number</th>
@@ -65,10 +65,10 @@
       <tbody>
       <tr *ngFor="let flight of flights">
         <td>{{ flight.flightnumber }}</td>
-        <td>{{ flight.trainnumber }}</td>
+        <td>{{ flight.train.typetrain }}</td>
         <td>{{ flight.departure }}</td>
         <td>{{ flight.arrival }}</td>
-        <td>{{ flight.routenumber }}</td>
+        <td>{{ flight.route.routenumber }}</td>
         <td>{{ flight.cancel }}</td>
         <td>{{ flight.reasoncancellation }}</td>
         <td>{{ flight.timedelay }}</td>

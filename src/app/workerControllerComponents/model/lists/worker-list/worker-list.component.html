@@ -91,9 +91,9 @@
         <td>{{ worker.countchildren }}</td>
         <td>{{ worker.stationstartdate }}</td>
         <td>{{ worker.salary }}</td>
-        <td>{{ worker.departmentid }}</td>
-        <td>{{ worker.brigadeid }}</td>
-        <td><a href="mailto:{{ worker.name }}">{{ worker.name }}</a></td>
+        <td>{{ worker.department.name }}</td>
+        <td>{{ worker.brigade.name }}</td>
+<!--        <td><a href="mailto:{{ worker.name }}">{{ worker.name }}</a></td>-->
       </tr>
       </tbody>
     </table>
